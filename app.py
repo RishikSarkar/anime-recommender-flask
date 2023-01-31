@@ -1,10 +1,8 @@
 import warnings
-from pandas.core.common import SettingWithCopyWarning
 warnings.filterwarnings("ignore")
 
 import numpy as np
 import pandas as pd
-import sklearn
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import linear_kernel
@@ -17,8 +15,6 @@ import flask
 from flask import Flask, request, render_template, jsonify
 
 # Building Recommender
-
-warnings.simplefilter(action="ignore", category=SettingWithCopyWarning)
 
 dataset = pd.read_csv('anime.csv')
 dataset.head()
