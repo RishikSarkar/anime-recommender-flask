@@ -1,6 +1,6 @@
 """
 =====================
-Betweenness Centrality
+Betweeness Centrality
 =====================
 
 Betweenness centrality measures of positive gene functional associations
@@ -70,13 +70,13 @@ ax.text(
 ax.text(
     0.80,
     0.06,
-    "node size = betweenness centrality",
+    "node size = betweeness centrality",
     horizontalalignment="center",
     transform=ax.transAxes,
     fontdict=font,
 )
 
-# Resize figure for label readability
+# Resize figure for label readibility
 ax.margins(0.1, 0.05)
 fig.tight_layout()
 plt.axis("off")

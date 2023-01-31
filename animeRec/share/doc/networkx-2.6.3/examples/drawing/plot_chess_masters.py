@@ -145,7 +145,7 @@ ax.text(
     fontdict=font,
 )
 
-# Resize figure for label readability
+# Resize figure for label readibility
 ax.margins(0.1, 0.05)
 fig.tight_layout()
 plt.axis("off")
