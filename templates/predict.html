@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+  <body>
+    <style>
+
+        body
+        {
+          background-color: black;
+        }
+
+        .container
+        {
+            background-color: white;
+            height: 375px;
+            max-width:750px;
+            border: 3px solid black;
+            -webkit-border-radius: 5px;
+            border-radius: 10px;
+
+            position: absolute;
+            top:0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+
+            margin: auto;
+        }
+
+        .center
+        {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+
+        input[type=submit]
+        {
+            padding:10px 15px;
+            background:black;
+            font-size:15px;
+            color:white;
+            border:0 none;
+            cursor:pointer;
+            -webkit-border-radius: 5px;
+            border-radius: 5px;
+        }
+
+        .predictionBox
+        {
+            padding:0px 15px;
+            margin-bottom: 25px;
+            width:75%;
+            width: auto;
+            max-width: 60ch;
+            border:2px solid black;
+            -webkit-border-radius: 5px;
+            border-radius: 10px;
+            font-size:18px;
+            color:black;
+        }
+
+        h3
+        {
+            font-size:22px;
+        }
+
+        .prevNext
+        {
+          display: inline-block;
+          margin-left: 5px;
+          margin-right: 5px;
+        }
+
+    </style>
+
+    <font face = "Microsoft JhengHei, WildWest">
+      <center>
+        <div class="container">
+          <div class="center">
+            <h3>You should watch:</h3>
+            <div class="predictionBox">
+              <p>{{ prediction }}</p>
+            </div>
+            <div>
+                <form class="prevNext" action="/prev" method="POST">
+                    <input type="submit" value="Prev Prediction">
+                </form>
+
+                <form class="prevNext" action="/next" method="POST">
+                    <input type="submit" value="Next Prediction">
+                </form>
+            </div>
+            <br>
+            <form action="/back" method="POST">
+                <input type="submit" value="Back">
+            </form>
+          </div>
+        </div>
+      </center>
+    </font>
+  </body>
+</html>

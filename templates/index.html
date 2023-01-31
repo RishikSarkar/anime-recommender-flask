@@ -1,0 +1,179 @@
+<html>
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.devbridge-autocomplete/1.2.26/jquery.autocomplete.min.js"></script>
+  </head>
+  <body>
+    <style>
+
+        body
+        {
+          background-color: black;
+        }
+
+        .container
+        {
+            background-color: white;
+
+            height: 375px;
+            max-width:750px;
+            border: 3px solid black;
+            -webkit-border-radius: 5px;
+            border-radius: 10px;
+
+            position: absolute;
+            top:0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+
+            margin: auto;
+        }
+
+        .center
+        {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+
+        label
+        {
+            font-size:18px;
+        }
+
+        input[type=text]
+        {
+            padding:10px;
+            margin-left: 10px;
+            border:2px solid black;
+            -webkit-border-radius: 5px;
+            border-radius: 10px;
+            font-size:15px;
+            color:black;
+        }
+
+        input[type=text]:focus
+        {
+            border-color:black;
+        }
+
+        input[type=submit]
+        {
+            padding:10px 15px;
+            background:black;
+            font-size:15px;
+            color:white;
+            border:0 none;
+            cursor:pointer;
+            -webkit-border-radius: 5px;
+            border-radius: 5px;
+        }
+
+        .infoBox
+        {
+            padding-top: 15px;
+            width:500px;
+            border:2px dotted black;
+            -webkit-border-radius: 5px;
+            border-radius: 10px;
+            font-size:15px;
+            color:black;
+        }
+
+        .ui-autocomplete
+      {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 1000;
+            display: none;
+            float: left;
+            min-width: 160px;
+            padding: 5px 0;
+            margin: 2px 0 0;
+            list-style: none;
+            font-size: 14px;
+            text-align: left;
+            background-color: #ffffff;
+            border: 1px solid #cccccc;
+            border: 1px solid rgba(0, 0, 0, 0.15);
+            border-radius: 4px;
+            -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+            background-clip: padding-box;
+        }
+
+          .ui-autocomplete > li > div
+        {
+            display: block;
+            padding: 3px 20px;
+            clear: both;
+            font-weight: normal;
+            line-height: 1.42857143;
+            color: #333333;
+            white-space: nowrap;
+        }
+
+          .ui-state-hover,
+          .ui-state-active,
+          .ui-state-focus
+        {
+            text-decoration: none;
+            color: #262626;
+            background-color: #f5f5f5;
+            cursor: pointer;
+        }
+
+          .ui-helper-hidden-accessible
+        {
+            border: 0;
+            clip: rect(0 0 0 0);
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+            padding: 0;
+            position: absolute;
+            width: 1px;
+        }
+
+    </style>
+
+    <font face = "Microsoft JhengHei, WildWest">
+      <center>
+        <div class="container">
+          <div class="center">
+            <h1>Anime Recommender</h1>
+            <div>
+                <form action="/predict" method="POST">
+                    <label for="title">Anime Title</label>
+                    <input type="text" step="0.01" id="title" name="title">
+                    <script>
+                      
+                        $('#title').autocomplete({
+                            serviceUrl: '/search/titles',
+                            dataType: 'json',
+                            onSearchComplete: function (query, suggestions) {
+                              console.log(query);
+                            }
+                        });
+
+                    </script>
+                    <br>
+                    <br>
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+            <br>
+            <div class="infoBox">
+                A simplistic Flask API that provides genre-based Anime recommendations from show titles!</p>
+            </div>
+          </div>
+        </div>
+      </center>
+    </font>
+  </body>
+</html>
